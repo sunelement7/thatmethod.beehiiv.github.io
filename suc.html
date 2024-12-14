@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Popup Example</title>
+  <style>
+    
+    #popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffff;
+      color: #000;
+      border-radius: 0 0 10px 10px;
+      padding: 15px 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      animation: slideDown 0.5s ease-out;
+    }
+    #popup img {
+      vertical-align: middle;
+      width: 24px;
+      height: 24px;
+      margin-right: 5px;
+    }
+    #popup h3 {
+      font-family: 'Arial', sans-serif;
+      font-weight: 400;
+      display: inline;
+      font-size: 15px;
+      margin: 0;
+    }
+
+    @keyframes slideDown {
+      from {
+        top: -50px;
+        opacity: 0;
+      }
+      to {
+        top: 0;
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="subscribeButton">Subscribe</button>
+
+  <div id="popup">
+    <img src="success.png" alt="Success Icon">
+    <h3>Subscribed!</h3>
+  </div>
+
+  <script>
+    const subscribeButton = document.getElementById("subscribeButton");
+    const popup = document.getElementById("popup");
+
+    subscribeButton.addEventListener("click", () => {
+      // Show the popup
+      popup.style.display = "block";
+
+      // Hide the popup after 3 seconds
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
